@@ -6,7 +6,7 @@ profitant de GitHub Pages, gratuit sur les dépôts publics uniquement.
 
 ## Avant de publier
 
-Remplacer `ADRESSE-A-COMPLETER` par une vraie adresse de contact, dans
+Remplacer `charlotte.rambeaud@gmail.com` par une vraie adresse de contact, dans
 `confidentialite.html`, `privacy.html` et `support.html`.
 
 ## Publier

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Have a good day: rejoins ta personne</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Le lien de l'invitation : le code en grand, un bouton qui le copie, et
+     le store du téléphone. Le code arrive après le # : il ne quitte jamais
+     le téléphone, aucun serveur ne le voit. */
+  header { padding-top: 56px; }
+  h1 .sub { white-space: nowrap; }
+  .code {
+    margin: 2rem 0 0.8rem;
+    padding: 1.1rem 0;
+    text-align: center;
+    font: 700 2.4rem/1 ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: 0.35em;
+    text-indent: 0.35em;
+    border: 1px solid rgba(138, 122, 107, 0.3);
+    border-radius: 16px;
+    user-select: all;
+    -webkit-user-select: all;
+  }
+  button, .store {
+    display: block;
+    width: 100%;
+    padding: 0.95rem 1rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  button { border: none; background: var(--accent); color: #fff; }
+  .store { margin-top: 0.7rem; border: 1.5px solid var(--accent); color: var(--accent); }
+  .etapes { margin-top: 2.5rem; padding-left: 1.2rem; }
+  .etapes li { margin-bottom: 0.6rem; }
+  .discret { color: var(--sourdine); font-size: 0.9rem; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>have a good day <span class="sub">love notes</span></h1>
+    <p class="chapeau" data-fr="Ta personne t'invite : un petit dessin par jour, rien que pour vous deux." data-en="Your person is inviting you: a little drawing a day, just for the two of you.">Ta personne t'invite : un petit dessin par jour, rien que pour vous deux.</p>
+  </header>
+
+  <section id="avec-code" hidden>
+    <div class="code" id="code" aria-live="polite"></div>
+    <button id="copier" type="button" data-fr="Copier le code" data-en="Copy the code">Copier le code</button>
+
+    <ol class="etapes">
+      <li data-fr="Télécharge l'app :" data-en="Get the app:">Télécharge l'app :</li>
+    </ol>
+    <a class="store" id="ios" href="https://apps.apple.com/app/id6802425024" data-fr="Sur l'App Store (iPhone)" data-en="On the App Store (iPhone)">Sur l'App Store (iPhone)</a>
+    <a class="store" id="android" href="https://play.google.com/store/apps/details?id=com.charlotterambeaud.haveagoodday" data-fr="Sur Google Play (Android)" data-en="On Google Play (Android)">Sur Google Play (Android)</a>
+    <ol class="etapes" start="2">
+      <li data-fr="Ouvre-la, choisis « J'ai reçu un code », et colle-le." data-en="Open it, choose “I received a code”, and paste it.">Ouvre-la, choisis « J'ai reçu un code », et colle-le.</li>
+    </ol>
+  </section>
+
+  <section id="sans-code" hidden>
+    <p data-fr="Ce lien a perdu son code en route. Demande à ta personne de te le renvoyer depuis l'app." data-en="This link lost its code on the way. Ask your person to send it again from the app.">Ce lien a perdu son code en route. Demande à ta personne de te le renvoyer depuis l'app.</p>
+    <p><a href="./">Have a good day</a></p>
+  </section>
+</main>
+<script>
+  // Même alphabet que l'app : sans I, L, O, 0 ni 1.
+  const ALPHABET = /^[ABCDEFGHJKMNPQRSTUVWXYZ2-9]{6}$/;
+  const code = decodeURIComponent(location.hash.slice(1)).toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const en = !/^fr\b/i.test(navigator.language || '');
+  if (en) {
+    document.documentElement.lang = 'en';
+    document.title = 'Have a good day: join your person';
+    document.querySelectorAll('[data-en]').forEach((e) => { e.textContent = e.dataset.en; });
+  }
+  const copyLabel = document.getElementById('copier').textContent;
+  if (ALPHABET.test(code)) {
+    document.getElementById('avec-code').hidden = false;
+    document.getElementById('code').textContent = code;
+    // Le store de ce téléphone d'abord ; l'autre reste, plus bas, au cas où.
+    const ua = navigator.userAgent;
+    if (/android/i.test(ua)) document.getElementById('ios').hidden = true;
+    else if (/iphone|ipad|ipod|macintosh/i.test(ua) && 'ontouchend' in document) document.getElementById('android').hidden = true;
+  } else {
+    document.getElementById('sans-code').hidden = false;
+  }
+  document.getElementById('copier').addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    try {
+      await navigator.clipboard.writeText(code);
+    } catch (e) {
+      // Sans presse-papiers (vieux navigateur) : le code est sélectionné,
+      // le menu du téléphone propose « Copier ».
+      const range = document.createRange();
+      range.selectNodeContents(document.getElementById('code'));
+      getSelection().removeAllRanges();
+      getSelection().addRange(range);
+      document.execCommand('copy');
+    }
+    button.textContent = en ? 'Copied ✓' : 'Copié ✓';
+    setTimeout(() => { button.textContent = copyLabel; }, 2500);
+  });
+</script>
+</body>
+</html>

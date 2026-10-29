@@ -41,7 +41,7 @@
   .store { margin-top: 0.7rem; border: 1.5px solid var(--accent); color: var(--accent); }
   .etapes { margin-top: 2.5rem; padding-left: 1.2rem; }
   .etapes li { margin-bottom: 0.6rem; }
-  .discret { color: var(--sourdine); font-size: 0.9rem; }
+  .discret { color: var(--sourdine); font-size: 0.9rem; margin: 0.6rem 0.4rem 0; line-height: 1.5; }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -61,6 +61,7 @@
     </ol>
     <a class="store" id="ios" href="https://apps.apple.com/app/id6802425024" data-fr="Sur l'App Store (iPhone)" data-en="On the App Store (iPhone)">Sur l'App Store (iPhone)</a>
     <a class="store" id="android" href="https://play.google.com/store/apps/details?id=com.charlotterambeaud.haveagoodday" data-fr="Sur Google Play (Android)" data-en="On Google Play (Android)">Sur Google Play (Android)</a>
+    <p class="discret" id="android-test" data-fr="Sur Android, l'app arrive bientôt sur Google Play. En attendant, si Google Play ne la trouve pas, écris-nous à contact.haveagooday@gmail.com : on t'envoie l'accès en avant-première." data-en="On Android, the app is coming soon to Google Play. Until then, if Google Play can't find it, write to contact.haveagooday@gmail.com and we'll send you early access.">Sur Android, l'app arrive bientôt sur Google Play. En attendant, si Google Play ne la trouve pas, écris-nous à contact.haveagooday@gmail.com : on t'envoie l'accès en avant-première.</p>
     <ol class="etapes" start="2">
       <li data-fr="Ouvre-la, choisis « J'ai reçu un code », et colle-le." data-en="Open it, choose “I received a code”, and paste it.">Ouvre-la, choisis « J'ai reçu un code », et colle-le.</li>
     </ol>
@@ -88,7 +89,10 @@
     // Le store de ce téléphone d'abord ; l'autre reste, plus bas, au cas où.
     const ua = navigator.userAgent;
     if (/android/i.test(ua)) document.getElementById('ios').hidden = true;
-    else if (/iphone|ipad|ipod|macintosh/i.test(ua) && 'ontouchend' in document) document.getElementById('android').hidden = true;
+    else if (/iphone|ipad|ipod|macintosh/i.test(ua) && 'ontouchend' in document) {
+      document.getElementById('android').hidden = true;
+      document.getElementById('android-test').hidden = true;
+    }
   } else {
     document.getElementById('sans-code').hidden = false;
   }

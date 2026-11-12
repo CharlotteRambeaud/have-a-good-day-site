@@ -11,53 +11,80 @@
   <header>
     <h1>Politique de confidentialité</h1>
     <p class="chapeau">Have a good day</p>
-    <p class="date">Dernière mise à jour : 7 septembre 2026</p>
+    <p class="date">Dernière mise à jour : 12 novembre 2026</p>
   </header>
 
   <h2>Ce que l'application conserve</h2>
 
-  <p><strong>Votre identifiant de connexion.</strong> L'application n'accepte
-  que « Sign in with Apple ». Apple nous transmet un identifiant propre à
-  cette application ; il ne permet pas de vous identifier ailleurs. Si vous
-  choisissez de masquer votre adresse e-mail, nous ne voyons que l'adresse
-  relais fournie par Apple.</p>
+  <p><strong>Votre identifiant de connexion.</strong> Sur iPhone, l'application
+  utilise « Sign in with Apple » : Apple nous transmet un identifiant propre à
+  cette application, et si vous masquez votre adresse e-mail, nous ne voyons
+  que l'adresse relais fournie par Apple. Sur Android, elle utilise la
+  connexion Google : Google nous transmet votre adresse e-mail et un
+  identifiant.</p>
 
   <p><strong>Le prénom ou surnom que vous saisissez.</strong> Il n'est montré
   qu'à la personne avec qui vous êtes relié.</p>
 
-  <p><strong>Vos dessins du jour.</strong> Ils sont envoyés à votre conjoint
-  et effacés automatiquement chaque nuit, à 4 h du matin dans votre fuseau
-  horaire. Ils ne sont pas archivés : l'application ne garde aucun
-  historique.</p>
+  <p><strong>Vos dessins du jour.</strong> Ils sont envoyés à votre personne.
+  À 4 h du matin dans son fuseau horaire, le dessin expire : dans l'heure qui
+  suit, son image et les mots écrits dessus sont effacés du serveur. Le
+  serveur ne garde aucun historique de vos dessins.</p>
 
-  <p><strong>La photo que vous choisissez</strong> pour les jours sans
-  dessin. Elle est visible par votre conjoint uniquement, et remplacée dès
-  que vous en choisissez une autre.</p>
+  <p><strong>Les photos que vous choisissez</strong> pour les jours sans
+  dessin, dix au plus. Elles ne sont visibles que par votre personne, jusqu'à
+  ce que vous les retiriez.</p>
 
-  <p><strong>Un jeton de notification</strong>, fourni par Apple, qui permet
-  de réveiller silencieusement l'application de votre conjoint pour mettre
-  son widget à jour. Aucune notification visible n'est envoyée.</p>
+  <p><strong>Les autocollants tirés de vos photos</strong> restent sur votre
+  téléphone. Ils ne le quittent que posés dans un dessin que vous envoyez.</p>
+
+  <p><strong>Un jeton de notification</strong>, fourni par Apple (iPhone) ou
+  par Google Firebase (Android), qui permet de réveiller silencieusement
+  l'application de votre personne pour mettre son widget à jour. Aucune
+  notification visible n'est envoyée.</p>
 
   <p><strong>Votre fuseau horaire et votre langue</strong>, pour situer la
   frontière de 4 h du matin et afficher la bonne langue dans le widget.</p>
 
+  <h2>Les statistiques d'usage</h2>
+
+  <p>Pour comprendre comment l'application est utilisée et l'améliorer, le
+  serveur note, rattachés à votre compte :</p>
+
+  <ul>
+    <li>les jours où vous ouvrez l'application, votre plateforme (iPhone ou
+    Android), la version de l'application et votre dernière visite ;</li>
+    <li>pour chaque dessin envoyé : sa date, le nom des tampons posés (par
+    exemple « cœur » ou « verre de vin »), et s'il contient une photo ou du
+    texte — jamais l'image, ni la photo, ni les mots ;</li>
+    <li>les dates auxquelles vous êtes relié à quelqu'un, ou dissocié.</li>
+  </ul>
+
+  <p>Ces statistiques restent sur notre serveur : elles ne sont ni partagées
+  ni envoyées à un service de mesure d'audience. Quand vous supprimez votre
+  compte, elles ne sont plus rattachées à aucun compte.</p>
+
   <h2>Ce que l'application ne fait pas</h2>
 
   <ul>
-    <li>Aucune publicité, aucun traceur, aucune mesure d'audience.</li>
+    <li>Aucune publicité, aucun traceur publicitaire, aucun outil tiers de
+    mesure d'audience.</li>
     <li>Aucune donnée vendue, louée ou transmise à des tiers à des fins
     commerciales.</li>
-    <li>Aucun accès à vos contacts, à votre position, à votre microphone ni à
-    votre photothèque au-delà de l'image que vous sélectionnez vous-même.</li>
+    <li>Aucun accès à vos contacts, à votre position ni à votre microphone.
+    L'appareil photo et la photothèque ne servent qu'aux images que vous
+    choisissez vous-même.</li>
   </ul>
 
   <h2>Où vos données sont hébergées</h2>
 
   <p>Les données sont hébergées chez Supabase, qui fournit la base de données
-  et le stockage des images. Les échanges avec l'application sont chiffrés
-  (HTTPS). Seules les deux personnes d'un même couple peuvent lire les
-  dessins et les photos de ce couple ; cette limite est appliquée par le
-  serveur, pas seulement par l'application.</p>
+  et le stockage des images. Sur Android, Google Firebase achemine les
+  messages qui réveillent l'application ; ils ne contiennent aucun dessin.
+  Les échanges avec l'application sont chiffrés (HTTPS). Seules les deux
+  personnes d'un même couple peuvent lire les dessins et les photos de ce
+  couple ; cette limite est appliquée par le serveur, pas seulement par
+  l'application.</p>
 
   <h2>Vos droits</h2>
 

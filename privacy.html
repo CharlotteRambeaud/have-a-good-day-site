@@ -11,50 +11,74 @@
   <header>
     <h1>Privacy Policy</h1>
     <p class="chapeau">Have a good day</p>
-    <p class="date">Last updated: 7 September 2026</p>
+    <p class="date">Last updated: 12 November 2026</p>
   </header>
 
   <h2>What the app stores</h2>
 
-  <p><strong>Your sign-in identifier.</strong> The app only accepts Sign in
-  with Apple. Apple gives us an identifier specific to this app; it cannot be
-  used to identify you anywhere else. If you choose to hide your email
-  address, we only ever see the relay address Apple provides.</p>
+  <p><strong>Your sign-in identifier.</strong> On iPhone, the app uses Sign in
+  with Apple: Apple gives us an identifier specific to this app, and if you
+  hide your email address, we only ever see the relay address Apple
+  provides. On Android, it uses Google sign-in: Google gives us your email
+  address and an identifier.</p>
 
   <p><strong>The first name or nickname you enter.</strong> It is shown only
   to the person you are connected with.</p>
 
-  <p><strong>Your drawing for the day.</strong> It is sent to your partner and
-  deleted automatically every night, at 4 a.m. in your time zone. Drawings
-  are never archived: the app keeps no history.</p>
+  <p><strong>Your drawing for the day.</strong> It is sent to your person. At
+  4 a.m. in their time zone the drawing expires: within the following hour,
+  its image and any words written on it are erased from the server. The
+  server keeps no history of your drawings.</p>
 
-  <p><strong>The photo you choose</strong> for the days you haven't drawn. It
-  is visible to your partner only, and replaced as soon as you pick another
-  one.</p>
+  <p><strong>The photos you choose</strong> for the days without a drawing, up
+  to ten. Only your person can see them, until you remove them.</p>
 
-  <p><strong>A notification token</strong> from Apple, used to silently wake
-  your partner's app so their widget updates. No visible notification is ever
-  sent.</p>
+  <p><strong>Stickers cut out of your photos</strong> stay on your phone. They
+  only leave it when you place them in a drawing you send.</p>
+
+  <p><strong>A notification token</strong> from Apple (iPhone) or Google
+  Firebase (Android), used to silently wake your person's app so their widget
+  updates. No visible notification is ever sent.</p>
 
   <p><strong>Your time zone and language</strong>, to place the 4 a.m.
   boundary and show the right language in the widget.</p>
 
+  <h2>Usage statistics</h2>
+
+  <p>To understand how the app is used and make it better, the server records,
+  linked to your account:</p>
+
+  <ul>
+    <li>the days you open the app, your platform (iPhone or Android), the app
+    version and your last visit;</li>
+    <li>for each drawing you send: its date, the names of the stamps you placed
+    (such as "heart" or "wine glass"), and whether it contains a photo or
+    text — never the image, the photo or the words;</li>
+    <li>the dates you connect with someone, or unpair.</li>
+  </ul>
+
+  <p>These statistics stay on our server: they are not shared or sent to any
+  analytics service. When you delete your account, they are no longer linked
+  to any account.</p>
+
   <h2>What the app does not do</h2>
 
   <ul>
-    <li>No advertising, no trackers, no analytics.</li>
+    <li>No advertising, no ad trackers, no third-party analytics.</li>
     <li>No data sold, rented or passed to third parties for commercial
     purposes.</li>
-    <li>No access to your contacts, location, microphone, or to your photo
-    library beyond the single image you select yourself.</li>
+    <li>No access to your contacts, location or microphone. The camera and
+    photo library are only used for the images you choose yourself.</li>
   </ul>
 
   <h2>Where your data lives</h2>
 
   <p>Data is hosted with Supabase, which provides the database and image
-  storage. Traffic between the app and the server is encrypted (HTTPS). Only
-  the two people in a couple can read that couple's drawings and photos; this
-  boundary is enforced by the server, not just by the app.</p>
+  storage. On Android, Google Firebase carries the messages that wake the app;
+  they contain no drawing. Traffic between the app and the server is
+  encrypted (HTTPS). Only the two people in a couple can read that couple's
+  drawings and photos; this boundary is enforced by the server, not just by
+  the app.</p>
 
   <h2>Your rights</h2>
 
